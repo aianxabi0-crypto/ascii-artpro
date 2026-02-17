@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Art Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+</head>
+<body>
+
+    <main class="container">
+        <header>
+            <h1>ASCII Studio</h1>
+            <p>Преврати изображение в текст</p>
+        </header>
+
+        <div class="glass-panel control-panel">
+            <div class="upload-area" id="drop-zone">
+                <input type="file" id="file-input" accept="image/*" hidden>
+                <div class="upload-content">
+                    <span class="icon">􀈖</span> <p>Нажми или перетащи фото сюда</p>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="control-group">
+                    <label>Набор символов</label>
+                    <select id="char-set">
+                        <option value="simple">Простой ( .:-=+*#%@)</option>
+                        <option value="complex">Детальный ($@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`'. )</option>
+                        <option value="blocks">Блоки (█▓▒░ )</option>
+                        <option value="binary">Матрица (01 )</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>Детализация: <span id="res-val">Средняя</span></label>
+                    <input type="range" id="resolution" min="50" max="300" value="120">
+                </div>
+                
+                <div class="control-group checkbox-group">
+                    <label for="inverted">Инверсия цвета</label>
+                    <input type="checkbox" id="inverted">
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-panel output-panel" id="output-container" style="display: none;">
+            <div class="output-actions">
+                <button id="copy-btn" class="action-btn">Скопировать</button>
+            </div>
+            <pre id="ascii-output"></pre>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
